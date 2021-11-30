@@ -1,1 +1,1 @@
-12
+ls ./countfiles.sh | wc -l
