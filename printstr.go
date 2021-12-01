@@ -6,8 +6,6 @@ func PrintStr(s string) {
 	// slice := []rune(s)
 
 	for _, c := range s {
-
-		z01.PrintRune('\n')
 		z01.PrintRune(c)
 	}
 }
