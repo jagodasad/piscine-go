@@ -1,0 +1,13 @@
+package piscine
+
+import "github.com/01-edu/z01"
+
+func PrintStr(s string) {
+	// slice := []rune(s)
+
+	for _, c := range s {
+
+		z01.PrintRune('\n')
+		z01.PrintRune(c)
+	}
+}
