@@ -10,8 +10,8 @@ func IterativePower(nb int, power int) int {
 		return 0
 	} else if power == 0 {
 		return 0
-	} else {
-		return 0
+	} else if power == 1 {
+		return nb
 	}
-	return 0
+	return result
 }
