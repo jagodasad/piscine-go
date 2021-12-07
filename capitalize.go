@@ -1,12 +1,5 @@
 package piscine
 
-func IsRune(c rune) bool {
-	if ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('0' <= c && c <= '9') {
-		return true
-	}
-	return false
-}
-
 func Capitalize(s string) string {
 	characters := []rune(s)
 	c1 := true
@@ -24,6 +17,13 @@ func Capitalize(s string) string {
 		}
 	}
 	return string(characters)
+}
+
+func IsRune(c rune) bool {
+	if ('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('0' <= c && c <= '9') {
+		return true
+	}
+	return false
 }
 
 /*for i, c := range s {
