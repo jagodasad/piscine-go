@@ -10,10 +10,17 @@ func Index(s string, toFind string) int {
 	}
 
 	for i := 0; i < len(s); i++ {
-		if sRune[i] == toFindRune[0] {
+		if sRune[i] == toFindRune[0] && len(toFind) <= 1 {
 			counter = counter + (i + 1)
 			break
 		}
+		if len(toFind) > 1 && sRune[i] == toFindRune[0] && sRune[i+1] == toFindRune[1] {
+			counter = counter + (i + 1)
+			break
+		}
+		//if len(toFind) > 1 && sRune[i+1] != toFindRune[1] {
+		//	return -1
+		//}
 	}
 
 	if counter == 0 {
