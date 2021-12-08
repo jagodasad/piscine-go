@@ -20,7 +20,7 @@ func main() {
 			}
 		}
 	}
-	for i := 0; i <= ln; i++ {
+	for i := 0; i <= ln-1; i++ {
 		for _, w := range arg2[i] {
 			z01.PrintRune(w)
 		}
