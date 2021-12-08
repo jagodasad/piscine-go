@@ -12,8 +12,8 @@ func main() {
 	for i := range arguments {
 		ln = i
 	}
-	for i := 1; i < ln; i++ {
-		for _, w := range arguments[i] {
+	for j := 1; j <= ln; j++ {
+		for _, w := range arguments[j] {
 			z01.PrintRune(w)
 		}
 		z01.PrintRune('\n')
