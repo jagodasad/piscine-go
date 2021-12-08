@@ -2,17 +2,22 @@ package main
 
 import (
 	"os"
-	"piscine"
 
 	"github.com/01-edu/z01"
 )
 
+func StrRev(s string) string {
+	runes := []rune(s)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}
+
 func main() {
 	arguments := os.Args
 	abs := arguments[0]
-
 	var result string
-
 	for i := len(abs) - 1; i >= 0; i-- {
 		if string(abs[i]) == "/" {
 			break
@@ -20,7 +25,7 @@ func main() {
 			result += string(abs[i])
 		}
 	}
-	s := piscine.StrRev(result)
+	s := StrRev(result)
 	for _, l := range s {
 		z01.PrintRune(l)
 	}
