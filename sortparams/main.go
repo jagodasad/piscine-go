@@ -7,15 +7,24 @@ import (
 )
 
 func main() {
-	arguments := os.Args
+	arg1 := os.Args
+	arg2 := os.Args
 	ln := 0
-	for i := range arguments {
+	for i := range arg1 {
 		ln = i
 	}
-	for j := 1; j <= ln; j++ {
-		for _, w := range arguments[j] {
+	for i := 1; i <= ln; i++ {
+		for j := 0; j <= ln; j++ {
+			if arg1[i] < arg2[j] {
+				arg2[j], arg1[i] = arg1[i], arg2[j]
+			}
+		}
+	}
+	for i := 0; i <= ln-1; i++ {
+		for _, w := range arg2[i] {
 			z01.PrintRune(w)
 		}
-		z01.PrintRune('\n')
+
+		z01.PrintRune(10)
 	}
 }
