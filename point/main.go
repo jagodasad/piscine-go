@@ -2,7 +2,6 @@ package main
 
 import "github.com/01-edu/z01"
 
-
 type point struct {
 	x, y int
 }
@@ -22,7 +21,7 @@ func main() {
 			j := points.x % 10
 			k := (points.x - j) / 10
 
-			z01.PrintRune(rune(k+48))
+			z01.PrintRune(rune(k + 48))
 			z01.PrintRune(rune(j + 48))
 		} else if output[i] == '*' {
 			j := points.y % 10
