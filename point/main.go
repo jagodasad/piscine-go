@@ -17,7 +17,7 @@ func main() {
 	output := ("x = !, y = *")
 
 	for i := range output {
-		if output[i] == '|' {
+		if output[i] == '!' {
 			j := points.x % 10
 			k := (points.x - j) / 10
 
