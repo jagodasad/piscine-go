@@ -17,9 +17,8 @@ func printStr(s string) {
 func isEven(nbr int) bool {
 	if nbr%2 == 1 {
 		return false
-	} 
+	}
 	return true
-	
 }
 
 func main() {
