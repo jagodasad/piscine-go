@@ -4,20 +4,21 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"piscine"
 )
 func main() {
-	if piscine.Lent3(os.Args) == 1 {
+	arg := os.Args
+	if len(arg) == 1 {
 		fmt.Println("File name missing")
-	} else if piscine.Lent3(os.Args) > 2 {
+	} else if len(arg) > 2 {
 		fmt.Println("Too many arguments")
-	} else if os.Args[1] == "quest8.txt" {
-		data, err := ioutil.ReadFile("quest8.txt")
+	} else if len(arg) == 2 {
+		data, err := ioutil.ReadFile(arg[1])
 
 		if err != nil {
 			fmt.Println(err.Error())
-			return
-		}
+			
+		} else {
 		fmt.Println(string(data))
+		}
 	}
 }
