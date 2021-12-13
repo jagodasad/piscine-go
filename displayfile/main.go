@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 )
+
 func main() {
 	arg := os.Args
 	if len(arg) == 1 {
@@ -16,9 +17,8 @@ func main() {
 
 		if err != nil {
 			fmt.Println(err.Error())
-			
 		} else {
-		fmt.Println(string(data))
+			fmt.Println(string(data))
 		}
 	}
 }
