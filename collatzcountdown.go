@@ -14,5 +14,5 @@ func CollatzCountdown(start int) int {
 		}
 		s++
 	}
-	return s
+	return s - 1
 }
