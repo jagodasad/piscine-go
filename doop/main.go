@@ -1,59 +1,72 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 )
 
-func isSigne(str string, arr []string) bool {
-	for _, v := range arr {
-		if str == v {
-			return true
+func main() {
+	args := os.Args[1:]
+
+	if len(args) == 3 {
+		works := true
+
+		_, err1 := strconv.Atoi(args[0])
+		_, err2 := strconv.Atoi(args[2])
+
+		if err1 != nil || err2 != nil {
+			works = false
+		}
+
+		if works {
+			os.Stdout.WriteString(Maths(args))
 		}
 	}
-	return false
 }
 
-func main() {
-	signe := []string{"+", "*", "-", "/", "%"}
-	args := os.Args[1:]
-	if len(args) != 3 {
-	} else {
-		if isSigne(args[1], signe) {
-			nb1, err := strconv.Atoi(args[0])
-			nb2, err2 := strconv.Atoi(args[2])
-			if nb1 == 0 {
-				fmt.Println(0)
-				return
-			}
-			if err == nil && err2 == nil {
-				switch args[1] {
-				case "+":
-					fmt.Println(nb1 + nb2)
-				case "-":
-					fmt.Println(nb1 - nb2)
-				case "/":
-					if nb2 == 0 {
-						fmt.Println("No division by 0")
-					} else {
-						fmt.Println(nb1 / nb2)
-					}
-				case "%":
-					if nb2 == 0 {
-						fmt.Println("No Modulo by 0")
-					} else {
-						fmt.Println(nb1 % nb2)
-					}
-				case "*":
-					fmt.Println(nb1 * nb2)
+func Maths(s []string) string {
+	nb1, _ := strconv.Atoi(s[0])
+	nb2, _ := strconv.Atoi(s[2])
+	var result int
+	var output string
 
-				}
-			} else {
-				fmt.Println("1")
-			}
-		} else {
-			fmt.Println("0")
+	switch s[1] {
+	case "+":
+		if nb1 == 9223372036854775807 || nb2 == 9223372036854775807 {
+			return ""
 		}
+		result = nb1 + nb2
+		output = changeToString(result)
+	case "-":
+		if nb1 == 9223372036854775807 || nb2 == 9223372036854775807 {
+			return ""
+		}
+		result = nb1 - nb2
+		output = changeToString(result)
+	case "/":
+		if nb2 == 0 || nb1 == 0 {
+			return "No division by 0\n"
+		}
+		result = nb1 / nb2
+		output = changeToString(result)
+	case "%":
+		if nb2 == 0 || nb1 == 0 {
+			return "No modulo by 0\n"
+		}
+		result = nb1 % nb2
+		output = changeToString(result)
+	case "*":
+		if nb1 == 9223372036854775807 || nb2 == 9223372036854775807 {
+			return ""
+		}
+		result = nb1 * nb2
+		output = changeToString(result)
 	}
+	return output
+}
+
+func changeToString(nbr int) string {
+	var output string
+	output = strconv.Itoa(nbr)
+	return output + "\n"
 }
